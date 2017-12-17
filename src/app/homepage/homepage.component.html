@@ -1,0 +1,31 @@
+ <!-- Blog Entries Column -->
+ <div>
+    
+              <h1 class="my-4">Page Heading
+                <small>Secondary Text</small>
+              </h1>
+    
+              <!-- Blog Post -->
+
+              <div *ngFor="let blog of blogs | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; let i = index">
+                <div  class="card mb-4">
+                  <img class="card-img-top" src="{{ blog.imageUrl }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h2 class="card-title">{{ blog.postTitle }}</h2>
+                    <p class="card-text">{{ blog.description }}</p>
+                    <a href="{{ blog.singlePosturl }}" class="btn btn-primary">Read More &rarr;</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted on {{ blog.publistDate }} by
+                    <a href="#">{{ blog.author }}</a>
+                  </div>
+                </div>
+    </div>
+              <!-- Pagination -->
+              <pagination-controls (pageChange)="page = $event" id="1"
+              maxSize="10"
+              directionLinks="true"
+              autoHide="true">
+        </pagination-controls>`
+    
+            </div>
