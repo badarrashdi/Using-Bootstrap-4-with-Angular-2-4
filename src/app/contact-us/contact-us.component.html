@@ -1,3 +1,11 @@
-<p>
-  contact-us works!
-</p>
+<div class="clearfix my-4"></div>
+
+<div id="details-container" *ngIf="(user | async)?.uid">
+  <p>Hey {{uid}}</p>
+  
+  <ul>
+      <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
+        {{ todo.Name }}
+      </li>
+    </ul>
+</div>

@@ -1,0 +1,61 @@
+<div class="my-4">
+  <kendo-grid [data]="reports" [height]="410">
+    <kendo-grid-column field="id" title="ID" width="40">
+    </kendo-grid-column>
+    <kendo-grid-column field="name" title="Name" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="username" title="Username" width="150">
+    </kendo-grid-column>
+    <kendo-grid-column field="email" title="Email" width="200">
+    </kendo-grid-column>
+    <kendo-grid-column field="address.city" title="Address" width="150">
+    </kendo-grid-column>
+    
+  </kendo-grid>
+</div>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 100%; min-height:350px; padding: 20px;">
+      <img class="card-img-top"
+        [src]="imageSrc" 
+        (load)="handleImageLoad()" 
+        [class.loaded]="imageLoaded"/>
+      <div class="card-block">
+        <h4 class="card-title" style="min-height: 40px; margin-bottom:15px">{{ title }}</h4>
+        <p class="card-text" style="min-height: 50px; margin-bottom:15px">{{ description }}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card" style="width: 100%;min-height:350px;padding: 20px;">
+      <label for="exampleInputFile">File Upload or Drag</label>
+      <label class="uploader" ondragover="return false;"
+    [class.loaded]="loaded" 
+    [style.outlineColor]="dragging ? activeColor : baseColor"
+    (dragenter)="handleDragEnter()"
+    (dragleave)="handleDragLeave()"
+    (drop)="handleDrop($event)">
+    
+   
+    <input type="file" name="file" accept="image/*"
+        (change)="handleInputChange($event)">
+    
+    
+    
+</label>
+      <div class="card-block">
+        <h4 class="card-title" style="min-height: 50px; margin-bottom:15px"><input class="form-control" placeholder="Enter Title" [(ngModel)]='title' value="Product Name" /></h4>
+        <p class="card-text" style="min-height: 50px; margin-bottom:15px"><textarea class="form-control" placeholder="Enter Description" [(ngModel)]='description' value="Product description"></textarea></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</div>

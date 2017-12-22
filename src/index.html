@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Angular4boot</title>
+  <title>Angular 2</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,5 +10,19 @@
 </head>
 <body>
   <app-root></app-root>
+  
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB-jNp-rJ5u5oW9plwizbi-NiRZQ6QjGsw",
+    authDomain: "my-ng2-form.firebaseapp.com",
+    databaseURL: "https://my-ng2-form.firebaseio.com",
+    projectId: "my-ng2-form",
+    storageBucket: "my-ng2-form.appspot.com",
+    messagingSenderId: "800580538359"
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 </html>

@@ -9,6 +9,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'app';
   constructor(
@@ -28,5 +29,12 @@ export class AppComponent {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => this.titleService.setTitle(event['title']));
+
+      this.router.events.subscribe((evt) => {
+        if (!(evt instanceof NavigationEnd)) {
+            return;
+        }
+        window.scrollTo(0, 0)
+    });
   }
 }

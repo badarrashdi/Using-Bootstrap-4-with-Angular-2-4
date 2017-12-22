@@ -1,13 +1,28 @@
  <!-- Blog Entries Column -->
  <div>
-    
+              <div class="hero-slider">
+                  <app-slider></app-slider>
+              </div>
               <h1 class="my-4">Page Heading
                 <small>Secondary Text</small>
               </h1>
     
               <!-- Blog Post -->
+              <div *ngFor="let blog of blogss | paginate: {itemsPerPage: 2, currentPage:blog, id: '1'}; let i = index">
+                <div  class="card mb-4">
+                  <div class="card-body">
+                    <h2 class="card-title">{{ blog.title }}</h2>
+                    <p class="card-text">{{ blog.body }}</p>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted on {{ blog.userId }} by
+                    <a href="#">{{ blog.id }}</a>
+                  </div>
+                </div>
+            </div>
 
-              <div *ngFor="let blog of blogs | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; let i = index">
+
+            <!-- <div *ngFor="let blog of blogs | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; let i = index">
                 <div  class="card mb-4">
                   <img class="card-img-top" src="{{ blog.imageUrl }}" alt="Card image cap">
                   <div class="card-body">
@@ -20,12 +35,12 @@
                     <a href="#">{{ blog.author }}</a>
                   </div>
                 </div>
-    </div>
+            </div> -->
               <!-- Pagination -->
-              <pagination-controls (pageChange)="page = $event" id="1"
+            <pagination-controls (pageChange)="blog = $event" id="1"
               maxSize="10"
               directionLinks="true"
               autoHide="true">
-        </pagination-controls>`
+            </pagination-controls>
     
             </div>

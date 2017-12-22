@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BlogserviceService } from '../blogservice.service'
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
+  providers: [BlogserviceService] // the key here
 })
 export class HomepageComponent implements OnInit {
 
@@ -18,7 +19,11 @@ export class HomepageComponent implements OnInit {
     author: string,
     singlePosturl: string,
   }];
-  constructor() {
+
+
+  constructor(
+    private blogServicebervice: BlogserviceService,
+  ) {
 
     this.blogs = [
       {
@@ -87,7 +92,19 @@ export class HomepageComponent implements OnInit {
     ];
 
   }
+  blogss: [{
+    id: string,
+    userId: string,
+    title: string,
+
+  }];
+  
+    loadBlogs() {
+      
+    }
+
   ngOnInit() {
+    this.blogServicebervice.getBlogs().subscribe(data => this.blogss = data);
   }
 
 }
